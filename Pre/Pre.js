@@ -54,8 +54,13 @@ function media(promedio){
     alert("La Media de calificaciones es: " + promedio);
 }
 
-function alumnoe(){
+function alumnoe(matriculas, nombres, grupos, sexos, calificaciones){
     let matricula = prompt("Ingresa la matricula del alumno/a");
+     for (let i = 0; i < matriculas.length; i++){
+        if (matricula == matriculas[i]){
+            alert("El alumno/a " + nombres[i] + " del grupo " + grupos[i] + " del sexo " + sexos[i] + " tiene una calificacion de " + calificaciones[i]);
+        }
+    }
 }
 function conjunto(){
 
@@ -66,7 +71,7 @@ function grupo(){
 
 datos();
 
-function menu(contalumnos, hombres, mujeres, promedio){
+function menu(contalumnos, hombres, mujeres, promedio, matriculas, nombres, grupos, sexos, calificaciones){
     let cont = 1;
     while (cont == 1){
         let Opc = prompt("Ingresa la opcion que desas" + "\n" + "1. Cantidad de alumnos" + "\n" + "2. Cantidad alumnos por genero" + "\n" + "3. Media de calificaciones" + "\n" + "4. Alumno Especifico" + "\n" + "5. Conjunto de alumnos" + "\n" + "6. Informacion por grupo" + "\n" + "7. Salir");
@@ -81,7 +86,7 @@ function menu(contalumnos, hombres, mujeres, promedio){
                 media(promedio);
                 break;
             case "4":
-                alumnoe();
+                alumnoe(matriculas, nombres, grupos, sexos, calificaciones);
                 break;
             case "5":
                 conjunto();
