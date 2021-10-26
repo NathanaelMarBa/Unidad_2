@@ -1,4 +1,5 @@
 function datos (){
+    alert("Bienvenido al sistema de registro de alumnos");
     let cant = parseInt(prompt("Cuantos alumnos quieres registrar"));
     let nombres = [];
     let matriculas = [];
@@ -63,29 +64,42 @@ function alumnoe(matriculas, nombres, grupos, sexos, calificaciones){
     }
 }
 function conjunto(sexos, calificaciones){
-    x = parseInt(prompt("Ingresa el numero de alumnos que deseas ver"));
+    var x = parseInt(prompt("Ingresa el numero de alumnos que deseas ver"));
     let hombres = 0;
     let mujeres = 0;
     let total = 0;
     let suma = 0;
-    for (let i = 2; i < x; i++){
-        for(z = 0; z < sexos.length; z++){
-            if (sexos[z] == "M"){
+    for (let j = 1; j <= x; j++){
+        if (x <= sexos.length){
+        b = Math.floor(Math.random()*(sexos.length));
+        c = sexos[b];
+        suma += calificaciones[b];
+            if (c == "M"){
                 hombres++;
             }else{
                 mujeres++;
             }
+        }else{
+            alert("No hay suficientes alumnos")
+            break;
         }
     }
-    for (let m = 0; m < calificaciones.length; m++) {
-        suma += calificaciones[m];
-    }
-    let promedio = suma / calificaciones.length;
+    let promedio = suma / x;
     total = hombres + mujeres;
     alert("Hay " + total + " Alumnos")
     alert("Hay " + hombres + " Hombres")
     alert("Hay " + mujeres + " Mujeres")
     alert("La media de calificaciones es: " + promedio);
+    /*for (let j = 0; j < sexos.length; j++){
+        if (sexos[j] == "M"){
+            hombres++;
+        }else{
+            mujeres++;
+        }
+    }*/
+    /*for (let m = 0; m < calificaciones.length; m++) {
+        suma += calificaciones[m];
+    }*/
 }
 function grupo(matriculas, nombres, grupos, sexos, calificaciones){
     let grupo = prompt("Ingresa El grupo que desas ver");
@@ -97,30 +111,44 @@ function grupo(matriculas, nombres, grupos, sexos, calificaciones){
     for (var i = 0; i < grupos.length; i++){
         if (grupo == grupos[i]){
             suma = suma + 1;
+
+            if (sexos[i] == "M"){
+                hombres++;
+            }else{
+                mujeres++;
+            }
+            sum += calificaciones[i];
         }
     }
-    for (let z = 1; z < sexos.length; z++){
+    alert("El grupo " + grupo + " tiene " + suma + " alumnos")
+    alert("Hay " + hombres + " Hombres " + " en el grupo: " + grupo)
+    alert("Hay " + mujeres + " Mujeres" + " en el grupo: " + grupo)
+
+    /*for (let z = 1; z < sexos.length; z++){
         if (sexos[z] == "M"){
             hombres++;
         }else{
             mujeres++;
         }
-    }
-    for (let m = 0; m < calificaciones.length; m++) {
-        sum += calificaciones[m];
-    }
-    let promedio = sum / calificaciones.length;
+    }*/
 
-    alert("El grupo " + grupo + " tiene " + suma + " alumnos")
-    alert("Hay " + hombres + " Hombres " + " en el grupo: " + grupo)
-    alert("Hay " + mujeres + " Mujeres" + " en el grupo: " + grupo)
+    /*for (let m = 0; m < calificaciones.length; m++) {
+        if(calificaciones[m] == calificaciones[i]){
+        sum += calificaciones[m];
+        }
+    }*/
+
+    let promedio = sum / suma;
+
     alert("La media de calificaciones es: " + promedio + " en el grupo: " + grupo)
 
     let matricula = prompt("Ingresa la matricula del alumno/a");
      for (let n = 0; n < matriculas.length; n++){
-        if (matricula == matriculas[n]){
-            alert("El alumno/a " + nombres[n] + " del grupo " + grupos[n] + " del sexo " + sexos[n] + " tiene una calificacion de " + calificaciones[n]);
-        }
+         if (grupo == grupos[n]){
+            if (matricula == matriculas[n]){
+                alert("El alumno/a " + nombres[n] + " del grupo " + grupos[n] + " del sexo " + sexos[n] + " tiene una calificacion de " + calificaciones[n]);
+            }
+         } 
     }
 }
 
