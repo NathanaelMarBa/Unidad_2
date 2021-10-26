@@ -68,7 +68,7 @@ function conjunto(sexos, calificaciones){
     let mujeres = 0;
     let total = 0;
     let suma = 0;
-    for (let i = 1; i < x; i++){
+    for (let i = 2; i < x; i++){
         for(z = 0; z < sexos.length; z++){
             if (sexos[z] == "M"){
                 hombres++;
@@ -87,8 +87,41 @@ function conjunto(sexos, calificaciones){
     alert("Hay " + mujeres + " Mujeres")
     alert("La media de calificaciones es: " + promedio);
 }
-function grupo(){
+function grupo(matriculas, nombres, grupos, sexos, calificaciones){
+    let grupo = prompt("Ingresa El grupo que desas ver");
+    var suma = 0;
+    let hombres = 0;
+    let mujeres = 0;
+    let sum = 0;
 
+    for (var i = 0; i < grupos.length; i++){
+        if (grupo == grupos[i]){
+            suma = suma + 1;
+        }
+    }
+    for (let z = 1; z < sexos.length; z++){
+        if (sexos[z] == "M"){
+            hombres++;
+        }else{
+            mujeres++;
+        }
+    }
+    for (let m = 0; m < calificaciones.length; m++) {
+        sum += calificaciones[m];
+    }
+    let promedio = sum / calificaciones.length;
+
+    alert("El grupo " + grupo + " tiene " + suma + " alumnos")
+    alert("Hay " + hombres + " Hombres " + " en el grupo: " + grupo)
+    alert("Hay " + mujeres + " Mujeres" + " en el grupo: " + grupo)
+    alert("La media de calificaciones es: " + promedio + " en el grupo: " + grupo)
+
+    let matricula = prompt("Ingresa la matricula del alumno/a");
+     for (let n = 0; n < matriculas.length; n++){
+        if (matricula == matriculas[n]){
+            alert("El alumno/a " + nombres[n] + " del grupo " + grupos[n] + " del sexo " + sexos[n] + " tiene una calificacion de " + calificaciones[n]);
+        }
+    }
 }
 
 datos();
@@ -114,7 +147,7 @@ function menu(contalumnos, hombres, mujeres, promedio, matriculas, nombres, grup
                 conjunto(sexos, calificaciones);
                 break;
             case "6":
-                grupo();
+                grupo(matriculas, nombres, grupos, sexos, calificaciones);
                 break;
             case "7":
                 cont = 0;
