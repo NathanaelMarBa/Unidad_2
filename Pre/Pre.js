@@ -63,7 +63,7 @@ function alumnoe(matriculas, nombres, grupos, sexos, calificaciones){
         }
     }
 }
-function conjunto(sexos, calificaciones){
+function conjunto(sexos, calificaciones, nombres){
     var x = parseInt(prompt("Ingresa el numero de alumnos que deseas ver"));
     let hombres = 0;
     let mujeres = 0;
@@ -73,22 +73,24 @@ function conjunto(sexos, calificaciones){
         if (x <= sexos.length){
         b = Math.floor(Math.random()*(sexos.length));
         c = sexos[b];
+        
         suma += calificaciones[b];
             if (c == "M"){
                 hombres++;
             }else{
                 mujeres++;
-            }
+            }    
         }else{
             alert("No hay suficientes alumnos")
             break;
         }
+        
     }
     let promedio = suma / x;
     total = hombres + mujeres;
     alert("Hay " + total + " Alumnos")
-    alert("Hay " + hombres + " Hombres")
-    alert("Hay " + mujeres + " Mujeres")
+    alert("Hay " + hombres + " Hombres: " + mas)
+    alert("Hay " + mujeres + " Mujeres: " + fem)
     alert("La media de calificaciones es: " + promedio);
     /*for (let j = 0; j < sexos.length; j++){
         if (sexos[j] == "M"){
@@ -107,7 +109,6 @@ function grupo(matriculas, nombres, grupos, sexos, calificaciones){
     let hombres = 0;
     let mujeres = 0;
     let sum = 0;
-
     for (var i = 0; i < grupos.length; i++){
         if (grupo == grupos[i]){
             suma = suma + 1;
@@ -172,7 +173,7 @@ function menu(contalumnos, hombres, mujeres, promedio, matriculas, nombres, grup
                 alumnoe(matriculas, nombres, grupos, sexos, calificaciones);
                 break;
             case "5":
-                conjunto(sexos, calificaciones);
+                conjunto(sexos, calificaciones, nombres);
                 break;
             case "6":
                 grupo(matriculas, nombres, grupos, sexos, calificaciones);
